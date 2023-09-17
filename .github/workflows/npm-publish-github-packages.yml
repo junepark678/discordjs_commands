@@ -9,16 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup Bun Runtime
-        uses: antongolub/action-setup-bun@v1
-      - run: bun install -p
-
   publish-gpr:
-    needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -31,7 +22,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - name: Setup Bun Runtime
         uses: antongolub/action-setup-bun@v1
-      - run: bun install -p
+      - run: bun install -p --no-save
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
