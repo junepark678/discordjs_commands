@@ -22,6 +22,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - name: Setup Bun Runtime
         uses: antongolub/action-setup-bun@v1
+      - run: rm bun.lockb
       - run: bun install -p --no-save
       - run: npm publish
         env:
