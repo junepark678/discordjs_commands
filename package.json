@@ -1,5 +1,5 @@
 {
-  "name": "discordjs_commands",
+  "name": "@junepark678/discordjs_commands",
   "module": "src/index.ts",
   "type": "module",
   "devDependencies": {
